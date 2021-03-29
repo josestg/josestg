@@ -133,6 +133,7 @@ export const MostUsedProgrammingLanguagesStats: React.FC = () => {
         align="center"
         justify="center"
         height="max-content"
+        mb={{ sm: 8, md: 0 }}
         bg={useColorModeValue("white", "gray.900")}
       >
         <Spinner size="lg" />
@@ -146,6 +147,8 @@ export const MostUsedProgrammingLanguagesStats: React.FC = () => {
       padding="4"
       rounded="md"
       boxShadow="md"
+      mx={{ sm: 0, md: 8 }}
+      my={{ sm: 8, md: 0 }}
       bg={useColorModeValue("white", "gray.900")}
     >
       <Stat>

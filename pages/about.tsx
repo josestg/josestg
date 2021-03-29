@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Flex,
-  HStack,
   Image,
   Link,
   Stack,
@@ -20,8 +19,8 @@ import {
 const AboutPage: React.FC = () => {
   return (
     <Flex direction="column" as="main">
-      <Stack mt="8" spacing="16">
-        <BaseLayout>
+      <Stack mt="4" spacing="16">
+        <BaseLayout align="center">
           <IntroSection />
         </BaseLayout>
 
@@ -34,8 +33,13 @@ const AboutPage: React.FC = () => {
 const LanguageHistory: React.FC = (props) => {
   return (
     <Stack px="4" {...props} bg={useColorModeValue("gray.50", "gray.800")}>
-      <BaseLayout py="12">
-        <HStack my="8" spacing="8" height="max-content">
+      <BaseLayout py="8">
+        <Flex
+          direction={{ sm: "column", md: "row" }}
+          my="8"
+          spacing="8"
+          height="max-content"
+        >
           <MostUsedProgrammingLanguagesStats />
           <Flex flex="1">
             <Stack spacing="2" fontSize="sm">
@@ -60,7 +64,7 @@ const LanguageHistory: React.FC = (props) => {
               </Text>
             </Stack>
           </Flex>
-        </HStack>
+        </Flex>
       </BaseLayout>
     </Stack>
   );
@@ -68,15 +72,17 @@ const LanguageHistory: React.FC = (props) => {
 
 const IntroSection: React.FC = (props) => {
   return (
-    <HStack spacing="8" className="intro" {...props}>
+    <Flex direction={{ sm: "column", md: "row" }} align="center" py="8">
       <Image
+        mb={{ sm: "8", md: "0" }}
         src="/images/profile.jpg"
         rounded="lg"
         height="324px"
         objectFit="cover"
         boxShadow="0 16px 40px rgba(214, 188, 250, 0.1)"
       />
-      <Stack spacing="4">
+
+      <Stack spacing="4" paddingX="4">
         <Text>
           Hello 👋, nama saya{" "}
           <Text as="span" fontWeight="bold" fontSize="lg">
@@ -122,7 +128,7 @@ const IntroSection: React.FC = (props) => {
           />
         </Stack>
       </Stack>
-    </HStack>
+    </Flex>
   );
 };
 
