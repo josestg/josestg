@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import React from "react";
+import Head from "next/head"
 import grayMatter from "gray-matter";
 import { GetStaticProps } from "next";
 import countReadingTime from "reading-time";
@@ -13,6 +14,9 @@ import { BaseLayout, ContentCard } from "../components";
 export const IndexPage: React.FC<StaticProps> = ({ data }) => {
   return (
     <Flex direction="column" as="main">
+      <Head>
+        <meta name="google-site-verification" content="8GsfWFXc7lGEs4UKcnrhOTwWoufVyAXHFnC0vJmxA0k" />
+      </Head>
       <Stack align="center">
         <BaseLayout height="300px">
           <Stack spacing={{ sm: "2", md: "4" }} width="94%" mx="auto">
