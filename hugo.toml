@@ -1,6 +1,9 @@
 baseURL = 'https://josestg.com/'
 languageCode = 'en-us'
-title = 'josestg'
+title = 'Jose Sitanggang'
+
+[params.label]
+text = "josestg"
 
 [params.homeInfoParams]
 Title = "👋 Meet Jose Sitanggang"
