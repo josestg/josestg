@@ -2,6 +2,14 @@ baseURL = 'https://josestg.com/'
 languageCode = 'en-us'
 title = 'Jose Sitanggang'
 
+[params]
+env = "production"
+description = "Jose Sitanggang's personal website"
+keywords = ["Jose Sitanggang", "Software Engineering", "Backend Engineer"]
+DateFormat = "January 2, 2006"
+defaultTheme = "dark"
+
+
 [params.label]
 text = "josestg"
 
