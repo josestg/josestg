@@ -8,7 +8,16 @@ description = "Jose Sitanggang's personal website"
 keywords = ["Jose Sitanggang", "Software Engineering", "Backend Engineer"]
 DateFormat = "January 2, 2006"
 defaultTheme = "dark"
-
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+showtoc = true
+tocopen = false
+ShareButtons = ["twitter", "facebook", "linkedin", "whatsapp"]
 
 [params.label]
 text = "josestg"
