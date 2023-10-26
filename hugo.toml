@@ -18,6 +18,7 @@ UseHugoToc = true
 showtoc = true
 tocopen = false
 ShareButtons = ["twitter", "facebook", "linkedin", "whatsapp"]
+comments = true
 
 [params.label]
 text = "josestg"
@@ -64,3 +65,12 @@ identifier = "tags"
 name = "tags"
 url = "/tags/"
 weight = 30
+
+[params.giscus]
+repo = 'josestg/josestg'                  # see https://giscus.app for more details
+repoId = 'R_kgDOI0SOBA'
+category = 'site-comments'
+categoryId = 'DIC_kwDOI0SOBM4CaYl7'
+mapping = 'pathname'
+theme = 'dark_dimmed'
+lang = 'en'
