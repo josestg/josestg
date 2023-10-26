@@ -29,3 +29,21 @@ url = "https://www.linkedin.com/in/josestg"
 [[params.socialIcons]]
 name = "medium"
 url = "https://medium.com/@josestg"
+
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/posts/"
+weight = 10
+
+[[menu.main]]
+identifier = "categories"
+name = "categories"
+url = "/categories/"
+weight = 20
+
+[[menu.main]]
+identifier = "tags"
+name = "tags"
+url = "/tags/"
+weight = 30
