@@ -232,3 +232,5 @@ The implementation above is a simplified representation of a slice in C++. In re
 You might have noticed that copying all items from the old backing array to the new backing array might seem expensive and inefficient, but it actually takes **O(1)** time. If you're curious about how this is achieved in constant time, you can read my other article titled "[How Can Adding a New Item to a Dynamic Array Be Achieved in Constant Time?](/posts/math/how-can-adding-a-new-item-to-a-dynamic-array-be-achieved-in-constant-time/)".
 
 That's all for now. I hope you've enjoyed this blog post. If you have any questions or suggestions, please feel free to leave a comment below. Thank you for reading!
+
+The complete code for this implementation is available on my [GitHub](https://github.com/josestg) in [this repository](https://github.com/josestg/go-slice-in-cpp).
