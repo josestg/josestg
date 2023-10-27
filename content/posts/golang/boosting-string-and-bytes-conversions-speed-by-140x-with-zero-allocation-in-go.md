@@ -7,7 +7,8 @@ tags = ['golang', 'slice', 'optimization']
 description = "Enhancing Performance and Memory Efficiency in String to Bytes Conversions and Vice Versa."
 [cover]
 hiden = false
-image = "https://ositcom.com/static/images/images/GoLang-1.png"
+image = "/images/golang.png"
+alt = "Golang Logo"
 caption = "Image by [ositcom.com](https://ositcom.com/)"
 +++
 

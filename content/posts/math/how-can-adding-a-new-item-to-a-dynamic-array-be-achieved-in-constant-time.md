@@ -6,6 +6,11 @@ author = ["Jose Sitanggang"]
 tags = ["math", "computer-science", "data-structure", "algorithm", "amortized-analysis"]
 description = "In short: It's a geometric series, and we'll use amortized analysis to explain it."
 math = true
+[cover]
+hiden = false
+image="/images/geometric-series-sum-by-MathVisualProofs.jpeg"
+alt="Geometric Series by https://www.youtube.com/@MathVisualProofs"
+caption="Image by https://www.youtube.com/@MathVisualProofs"
 +++
 
 Based on the previous article titled "**[Implement Dynamic Array in C++](https://josestg.com/blog/implement-dynamic-array-in-cpp)**," we know that a dynamic array is a data structure that can grow and shrink as needed, which is called **resizing**.
