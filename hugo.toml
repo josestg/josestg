@@ -74,7 +74,7 @@ theme = 'dark_dimmed'
 lang = 'en'
 
 [params.editPost]
-URL = "https://github.com/josestg/josestg/content"
+URL = "https://github.com/josestg/josestg/blob/main/content"
 Text = "Suggest Changes"
 appendFilePath = true
 
