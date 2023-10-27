@@ -55,16 +55,10 @@ url = "/posts/"
 weight = 10
 
 [[menu.main]]
-identifier = "categories"
-name = "categories"
-url = "/categories/"
-weight = 20
-
-[[menu.main]]
 identifier = "tags"
 name = "tags"
 url = "/tags/"
-weight = 30
+weight = 20
 
 [params.giscus]
 repo = 'josestg/josestg'                  # see https://giscus.app for more details
