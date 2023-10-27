@@ -1,6 +1,7 @@
 baseURL = 'https://josestg.com/'
 languageCode = 'en-us'
 title = 'Jose Sitanggang'
+paginate = 5
 
 [minify]
 disableXML = true
