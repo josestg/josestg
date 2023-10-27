@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/josestg
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://josestg.com
+  * I am josestg (https://keybase.io/josestg) on keybase.
+  * I have a public key with fingerprint 2F82 D694 67DF FE19 5283  773D AF7B 4FE1 485D 25D4
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101e8bce74d02ee01cd10dc71a08b22257c7d83d3877c3b7fe068307a4fdbf102390a",
+      "fingerprint": "2f82d69467dffe195283773daf7b4fe1485d25d4",
+      "host": "keybase.io",
+      "key_id": "af7b4fe1485d25d4",
+      "kid": "0101e8bce74d02ee01cd10dc71a08b22257c7d83d3877c3b7fe068307a4fdbf102390a",
+      "uid": "888349bd6793a7a138dc86da74bf0a19",
+      "username": "josestg"
+    },
+    "merkle_root": {
+      "ctime": 1698401249,
+      "hash_meta": "2b547e705be4a3f97e2b930bce79e0588b61665afd464d74415a21b157f349c9",
+      "seqno": 25078207
+    },
+    "revoke": {
+      "sig_ids": [
+        "d6b98095c9977ab385f2c3c09ef05b3fc3e22dcf226070103d1c80a10cd7ed860f"
+      ]
+    },
+    "service": {
+      "hostname": "josestg.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1698401310,
+  "expire_in": 157680000,
+  "prev": "3ba55b17d29d754a77d40fd473542f78c5de95dd4f2378583f8543fa03324122",
+  "seqno": 16,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMK4AnicrZNtiBVVGMf3Wq22sVtZX0JWlyFMc5XzOuecq0UluBSlIdEutXU7r7vj
+vXvnNjN7a7UNNSuSPlRsUK0VVB96sfzQkoqX0sV8qS1YMFdQpMItoULQYCMjOrMU
+IfSx+TLMmf/zf/7P75xzsPWyppbC0JltHdGF6XOFL8cHB5vsyucXbgpUbIaC4qag
+bGdftmJsmpXKkQmKAYAAWq60ZcQAZC2A2kBgNIMScIUQokwzw7HBnDGNFXMWhBwD
+JokzykGAsAAy6AxcVO2zSS2Jqpm3RY4jEwoSMuOchYIijhnDRjqmiF8gnBpEDfGF
+/XGaV/hwSqZ2RRT7Nf9Rmo33H/r/OffgrB3nHBOhTMgElkxCzI3moZGMKAckFLkw
+tUlVDliv3hCnnmBfMNwZDNikXLGlJI6znK3OolwBQ8EJgIgIP59M+0sDNpM5FkUJ
+swxQZYnETjCLlMAgH0NYQDlXIQxDKp0hITGMEEglggpS5nw8ncdI7aPVOCgiChhH
+gPkIia3HZZt3T6M+jy0Nig8GJlSCA0G1EIxJhTl1SGMNhHW+O3YaW4SMdgiFgHmY
+2EDN/aRAG2YND4ELHhrOuyX1SM+a5/t06fwrdDzgE9WSOIt1XPE/+rOslhZzLtlQ
+LVc+ZlXpb4+SiqrGHxJfUbdJGsVVz8krL0WGIegM7OO1KLGlKFdQFnLgn7yPrXtL
+rCSlCjKDhGGUSMYMAR4Yw5Qgx7imxgpqDHEIM045dpwS7CTAGBGI0L8MYehzyj7v
+6cFVZTaY2GB4fH/v5U2FlqbmK+bkt6ep5cpr/rlTJw/P/XPxHc/yj7fvGtvdlvx2
+4dUP53XXe2/49LrOi42ZZ+aePnBmwi2fd94c3jM59tre98SWZr16tKdtrHzPkqmn
+W0cf0TcXTt+4eLpNzF8wdN/GBp2AizouflPoby+tefnqb5/6dd1Lt+48FeweGZk8
+//obX0fXBsuPfbWvi2xvP/vz7w/3fnfV9OYd7+6b5PfvCJaMjH40s3bNtqXr5ryw
+9Jb0yedORFO7eu7s6u5m61e+tXWZa71r4lTHwZNnb9t7tPntz8aXFaZ7fvm8tPnY
++4ceGK+suvvNqeNPFLq2Hp3Ys3aBqcz//voD9viPHyx6596NL/Y0jmx45af97V80
+6JFzO09s+eGPkVU3Ndj62xfOfLL60F9DHoKf
+=7jl3
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/josestg
+
+==================================================================
