@@ -93,9 +93,6 @@ $$
 \end{split}
 $$
 
-The $\sigma$ is the total number of items copied during resizing. We also know that the total number of items added to the array is $N$. Therefore, the total number of operations is $N + \sigma$. Since we want to calculate the amortized cost of adding a new item, we can divide the total number of operations by $N$:
-
-
 $\sigma$ only represents the total number of items copied during resizing, and we know that the total number of items added to the array is $N$. Therefore, the total number of operations is $N + \sigma$.
 
 To calculate the amortized cost of adding a new item, we divide the total number of operations by $N$ to get the average cost:
