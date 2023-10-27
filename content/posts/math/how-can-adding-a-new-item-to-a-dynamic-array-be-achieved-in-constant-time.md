@@ -13,7 +13,7 @@ alt="Geometric Series by https://www.youtube.com/@MathVisualProofs"
 caption="Image by https://www.youtube.com/@MathVisualProofs"
 +++
 
-Based on the previous article titled "**[Implement Dynamic Array in C++](https://josestg.com/blog/implement-dynamic-array-in-cpp)**," we know that a dynamic array is a data structure that can grow and shrink as needed, which is called **resizing**.
+Based on the previous article titled "**[Exploring Internal Implementation of Go Slice](/posts/golang/exploring-internal-implementation-of-go-slice/)**," we know that a dynamic array is a data structure that can grow and shrink as needed, which is called **resizing**.
 
 As seen in the implementation, resizing is an expensive operation because it involves copying all the items from the old array to the new array. This resizing is performed only when the array is full. Since the capacity is doubled each time the array is resized, the resizing operation will be less frequent as the array grows. This makes amortized analysis the best approach to understand the complexity because it distributes the cost of resizing over all the operations.
 
