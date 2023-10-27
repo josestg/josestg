@@ -2,9 +2,13 @@ baseURL = 'https://josestg.com/'
 languageCode = 'en-us'
 title = 'Jose Sitanggang'
 
+[minify]
+disableXML = true
+minifyOutput = true
+
 [params]
 env = "production"
-description = "Jose Sitanggang's personal website"
+description = "'m a software engineer from Indonesia. It's great to have you on my site, where I share my learning journey and thoughts on software engineering, math, and more"
 keywords = ["Jose Sitanggang", "Software Engineering", "Backend Engineer"]
 DateFormat = "January 2, 2006"
 defaultTheme = "dark"
@@ -77,4 +81,4 @@ appendFilePath = true
 [params.cover]
 hidden = true
 hiddenInList = true
-hiddenInSingle = true
+hiddenInSingle = false

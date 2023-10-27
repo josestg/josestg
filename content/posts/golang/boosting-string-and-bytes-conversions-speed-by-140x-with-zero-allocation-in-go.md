@@ -5,6 +5,10 @@ draft = false
 author = "Jose Sitanggang"
 tags = ['golang', 'slice', 'optimization']
 description = "Enhancing Performance and Memory Efficiency in String to Bytes Conversions and Vice Versa."
+[cover]
+hiden = false
+image = "https://ositcom.com/static/images/images/GoLang-1.png"
+caption = "Image by [ositcom.com](https://ositcom.com/)"
 +++
 
 
