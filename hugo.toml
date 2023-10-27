@@ -68,3 +68,8 @@ categoryId = 'DIC_kwDOKlwNbc4Cae2C'
 mapping = 'pathname'
 theme = 'dark_dimmed'
 lang = 'en'
+
+[params.editPost]
+URL = "https://github.com/josestg/josestg/content"
+Text = "Suggest Changes"
+appendFilePath = true
