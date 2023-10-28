@@ -76,7 +76,7 @@ As a result, we have found that $N_x = N_y$ contradicting our initial assumption
 
 ## Conclusion
 
-We've proven that applying XOR to an integer with any possible value of $N$ produces a unique result for each $N$. This proof is essential to ensure that the ShadowID is unique. If you are interested in the algorithm, please refer to my article titled "**[ShadowID: How to Expose the Auto-Increment ID to the Public Without Compromising Security](https://josestg.com/blog/shadowid-how-to-expose-the-auto-increment-id-to-public-without-compromising-security)**."
+We've proven that applying XOR to an integer with any possible value of $N$ produces a unique result for each $N$. This proof is essential to ensure that the ShadowID is unique. If you are interested in the algorithm, please refer to my article titled "**[ShadowID: Expose the Auto Increment ID to Public Without Compromising Security](/posts/golang/shadowid-expose-the-auto-increment-id-to-public-without-compromising-security/)**."
 
 [^1]:[$2^{64}$ bytes is enough for any human](https://lwn.net/Articles/80696)
 [^2]:[UUIDs are Popular, but Bad for Performance](https://www.percona.com/blog/uuids-are-popular-but-bad-for-performance-lets-discuss)
