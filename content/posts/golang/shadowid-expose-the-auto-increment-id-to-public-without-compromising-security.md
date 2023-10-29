@@ -29,8 +29,7 @@ This reversibility is essential for utilizing the auto-increment ID for database
 token. A security token is essentially like a signature that can be used to verify if the auto-increment ID is indeed
 the correct pair of the UUIDv4.
 
-Instead of changing the way the ID is stored, I decided to change the perspective to change the way the ID is exposed.
-**That's the problem we want to solve!**
+Instead of changing the way the ID is stored, I decided to change the perspective to change the way the ID is exposed. **That's the problem we want to solve!**
 
 My objective is to create an ID that is only used for the public API, which contains the Auto Increment ID but is **very
 hard to guess if we don't know how the ID is generated**. That's why I call this technique **ShadowID**, because it's
