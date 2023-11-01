@@ -1,6 +1,6 @@
 +++
 date = '2023-10-30T23:21:37+07:00'
-draft = true
+draft = false
 title = 'Practical Design Pattern in Go: Functional Options'
 author = "Jose Sitanggang"
 tags = ['golang', 'design-pattern', 'functional-options']
