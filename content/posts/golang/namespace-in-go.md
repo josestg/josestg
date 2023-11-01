@@ -75,7 +75,7 @@ func WithRunOptionEventListener(listener func(event RunEvent, data string)) RunO
 
 Do you notice the problem?
 
-> Btw, if you're not familiar with the Functional Option pattern, please check out my article titled "**[Functional Option Pattern in Go](/posts/golang/functional-option-pattern-in-go/)**." 
+> Btw, if you're not familiar with the Functional Options pattern, please check out my article titled "**[Practical Design Pattern in Go: Functional Options](/posts/design-pattern/functional-options/)**." 
 
 The first issue arises when we use a code editor or IDE. While typing the package name, we are presented with suggestions for all exposed functions that are available. In my opinion, this is not ideal because users are confronted with too many options. The second problem pertains to naming. We need to prefix the option names with the type of the option. For example, `WithRunOption` is the option for the `NewGracefulRunner`, and `WithMuxOption` is the option for the `NewServeMux`. Let's take a look at how these options are used:
 
