@@ -7,33 +7,28 @@ tags = ["golang", "tips", "microservice", "12-factor"]
 description = "Learn how graceful shutdown ensures your requests stay safe during service updates by following the 12-factor principles"
 +++
 
-Imagine you have a production service running on Kubernetes or any other container orchestration platform. Your service is currently processing client requests, and at the same time, you're deploying a new version of your service to production. What will happen to your client requests?
+Imagine you have a production service running on Kubernetes that is currently processing client requests while also deploying a new version to production. What will happen to those requests?
 
-Will they be interrupted, potentially leading to request loss?
-Or will your service wait until all the requests are finished before switching to the new version?
+Will those requests be lost, or will your service wait until all requests have been completed before upgrading?
 
 Let's watch the demo below to provide a better context for the problem we are trying to solve.
 
 {{< youtube id="DYL1mb7EdRU" title="Server without vs. with graceful shutdown" >}}
 
+In the first part, the server is not implementing graceful shutdown. When it receives the shutdown signal, it immediately begins the shutdown procedure, even if there are still requests in process. This is undesirable because it may cause request loss or, worse, data corruption if the server performs write operations.
 
-As we can see in the video, when the server does not implement the graceful shutdown, it immediately proceeds with the shutdown process, even though there are still ongoing requests. This is bad because it can lead to request loss or, even worse can lead data corruption if the server performs write operations.
+In the second part, when the server implements graceful shutdown, it waits until all ongoing requests have been completed before starting the shutdown procedure. Despite the fact that the server had already received the shutdown signal while it was still processing requests, it deferred the shutdown procedure.
 
-In the second part, when the server implements the graceful shutdown, it waits until all ongoing requests are finished before proceeding with the shutdown process. We can see in the video that all client requests are finished before the server shutdown, even though the server had already received the shutdown request while it was still processing requests.
+This shutdown procedure is essential for production services, as it is listed as one of the best practices for building modern applications in the [Twelve-Factor App](https://12factor.net/disposability).
 
-
-The shutdown mechanism is crucial for production services, as it is mentioned in the [Twelve-Factor App](https://12factor.net/disposability) as one of the best practices for building modern applications.
-
-
-How do we implement this in Go? Let's find out!
+In the next section, we will discuss how the graceful shutdown procedure is implemented in Go.
 
 ## Implementation
 
-If you have already used the [`http.Server`](https://pkg.go.dev/net/http#Server) to serve your [`http.Handler`](https://pkg.go.dev/net/http#Handler) (or a router like [`http.ServeMux`](https://pkg.go.dev/net/http#ServeMux)), you're on the right track. The [`http.Server`](https://pkg.go.dev/net/http#Server) has a method called [`Shutdown`](https://pkg.go.dev/net/http#Server.Shutdown) that essentially does what we need. **It will reject new requests and wait until all ongoing requests are finished before proceeding with the shutdown process**.
 
-The missing part is that we need a way to listen for a shutdown signal to trigger the shutdown process. Following the [Twelve-Factor App](https://12factor.net/disposability) guidelines, the shutdown request will be performed when the server receives the `SIGTERM` signal. Fortunately, the Go standard library provides everything we need. We can use [`signal.Notify`](https://pkg.go.dev/os/signal#Notify) to listen for certain signals, with [`syscall.SIGTERM`](https://cs.opensource.google/go/go/+/refs/tags/go1.21.3:src/syscall/zerrors_linux_amd64.go;l=1343) as the signal we want to watch.
+If you already used the [`http.Server`](https://pkg.go.dev/net/http#Server) to serve your API, you're on the right track. It has a method called [Shutdown](https://pkg.go.dev/net/http#Server.Shutdown) that will reject new requests and wait until all ongoing requests are finished before proceeding with the shutdown procedure.
 
-Before we continue, let's take a look at the code that will serve as the basis for our implementation:
+The missing part is that we need some way to listen to a signal that used to begin the shutdown protocol. By following the Twelve-Factor App guidelines, a signal that is used to request a shutdown is the [SIGTERM](https://cs.opensource.google/go/go/+/refs/tags/go1.21.3:src/syscall/zerrors_linux_amd64.go;l=1343) signal. We can find this signal in the syscall package. To listen to a certain signal event, we can use the [Notify](https://pkg.go.dev/os/signal#Notify) function from the signals package. But before we implement the shutdown signal listener, let us see the server code that we used in the previous video as our foundation code.
 
 ```go
 func slowHandler(w http.ResponseWriter, r *http.Request) {
@@ -71,10 +66,8 @@ func main() {
 }
 ```
 
-This is the server code that we have already seen in the demo video. You can find the gist [here](https://github.com/josestg/graceful-shutdown-in-go/blob/cdf7e3b430ce2dd0c1b8de0ccb6029f93bc7e1c1/server/main.go#L12-L44).
 
-Now let's add the shutdown signal listener:
-
+Now let us add the signal listener that is used to start the shutdown procedure.
 
 ```diff
 diff --git a/server/main.go b/server/main.go
@@ -108,17 +101,7 @@ os.Exit(1)
 }
 ```
 
-In the diff above, you can see that we used [`signal.Notify`](https://pkg.go.dev/os/signal#Notify) to listen for the `SIGINT` and `SIGTERM` signals. We also create a channel with a size of 1 to receive the signal, as required by the [`signal.Notify`](https://pkg.go.dev/os/signal#Notify) documentation.
-
-Next, we utilize the [`select`](https://tour.golang.org/concurrency/5) statement to wait for the signal. The [`select`](https://tour.golang.org/concurrency/5) statement will block until one of the cases is ready. In this scenario, the [`select`](https://tour.golang.org/concurrency/5) statement will block until `SIGINT` or `SIGTERM` is received.
-
-However, when you run the code, you won't see this log in the console:
-
-```go
-log.Info("listen for shutdown request", "watched_signals", watchedSignals)
-```
-
-This is because `srv.ListenAndServe()` is blocking. To address this, we need to run it in a separate goroutine.
+In the git diff above, I also added an interrupt signal ([SIGINT](https://cs.opensource.google/go/go/+/refs/tags/go1.21.3:src/syscall/zerrors_linux_amd64.go;l=1330)), which is a signal that will be sent if we press CTRL + C in the terminal where the server is running. However, if we run the code, we will not see the "*listen for shutdown request*" log because the [ListenAndServe](https://pkg.go.dev/net/http#Server.ListenAndServe) method is blocking. Let's fix this by moving the ListenAndServe into a separate goroutine.
 
 ```diff
 diff --git a/server/main.go b/server/main.go
@@ -146,14 +129,8 @@ index 88ce40c..caf9309 100644
  	watchedSignals := []os.Signal{syscall.SIGINT, syscall.SIGTERM}
 ```
 
-Now, when you run the code, you will see the following logs:
 
-```log
-time=2023-11-01T19:33:22.830+07:00 level=INFO msg="server started" addr=:8080
-time=2023-11-01T19:33:22.830+07:00 level=INFO msg="listen for shutdown request" watched_signals="[interrupt terminated]"
-```
-
-Using `os.Exit(1)` is not considered best practice. We also have separate exit points, one when the server encounters an error, and another when the shutdown signal is received. To address this, let's add a new channel to capture errors from `srv.ListenAndServe()` and then listen for the error within the `select` statement.
+Because we use the select statement, the main goroutine will block until the signal listener receives a signal from the Notify method. In the current code, we have two exit points, one in the ListenAndServe goroutine and the other when the select statement is in the main goroutine. Let's move the exit point in the ListenAndServe goroutine into the main goroutine by adding a new channel that is listening to the error from the ListenAndServe method and waiting for the error in the select statement.
 
 ```diff
 diff --git a/server/main.go b/server/main.go
@@ -197,52 +174,11 @@ index caf9309..4263af0 100644
  	}
 ```
 
-Additionally, since the `http.ErrServerClosed` error is not considered an error, we don't listen to it.
+As I mentioned previously, we add a channel to listen to the error from ListenAndServe, but there is an exception for the [ErrServerClosed](https://pkg.go.dev/net/http#ErrServerClosed) error since it tells us that the server successfully closed.
 
-We have completed the missing part, which is listening for the shutdown signal. 
+At this point, we have completed the shutdown signal listener part. The next part is to use that event to start the shutdown procedure by calling the Shutdown method from the `http.Server`.
 
-The next step is to call [`srv.Shutdown`](https://pkg.go.dev/net/http#Server.Shutdown) when the shutdown signal is received. Let's add it to the `select` statement.
-
-Demo 2:
-
-```diff
-diff --git a/server/main.go b/server/main.go
-index 4263af0..f5f23dd 100644
---- a/server/main.go
-+++ b/server/main.go
-@@ -1,6 +1,7 @@
- package main
- 
- import (
-+	"context"
- 	"errors"
- 	"io"
- 	"log/slog"
-@@ -63,5 +64,13 @@ func main() {
- 
- 	case sig := <-shutdownListener:
- 		log.Info("received shutdown request", "signal", sig)
-+
-+		// shutdown process.
-+		log.Info("shutting down server")
-+		defer log.Info("server shutdown gracefully")
-+
-+		if err := srv.Shutdown(context.TODO()); err != nil {
-+			log.Error("server shutdown failed", "error", err)
-+		}
- 	}
- }
-```
-
-At this point, when a shutdown signal is received, the server proceeds with the shutdown process.
-
-If we take a closer look, there's a reason why the shutdown process takes a [`context.Context`](https://pkg.go.dev/context#Context) as an argument. The [`context.Context`](https://pkg.go.dev/context#Context) is used to set a deadline for the shutdown process. This is important because we don't want to wait indefinitely for the shutdown process to complete.
-
-To make testing easier, let's use flags as arguments to set the wait tolerance for the shutdown process.
-
-```diff
-
-Add wait tolerance.
+If we take a closer look at the Shutdown method, it takes an argument [context](https://pkg.go.dev/context#Context). We don't know how long it will take to complete all the requests; it may take minutes, an hour, or maybe a day. We don't want to wait too long, which is why we need to set some deadlines that will allow the long request to be completed. We can implement this by using the context [WithTimeout](https://pkg.go.dev/context#WithTimeout).
 
 ```diff
 diff --git a/server/main.go b/server/main.go
@@ -287,15 +223,11 @@ index f5f23dd..d31244f 100644
  	}
 ```
 
-We replaced the [`context.TODO()`](https://pkg.go.dev/context#TODO) with [`context.Background()`](https://pkg.go.dev/context#Background) and set the wait tolerance using [`context.WithTimeout`](https://pkg.go.dev/context#WithTimeout).
+To make the wait tolerance dynamic, we used [flag](https://pkg.go.dev/flag#FlagSet) arguments with a default value of 5 seconds. We can run this code again by using the following command to set the wait tolerance to 10 seconds.
 
-We can use the following command to set the wait tolerance to 10 seconds.
 
-```shell
-./bin/server -wait 10s
-```
 
-When the shutdown process is not completed within the wait tolerance, `srv.Shutdown` will return a [`context.DeadlineExceeded`](https://pkg.go.dev/context#DeadlineExceeded) error. If we encounter this error, we can force the server to close by calling [`srv.Close`](https://pkg.go.dev/net/http#Server.Close). This is the last resort to ensure the server is closed.
+When the shutdown procedure is not completed within the wait tolerance, the shutdown method will return the DeadlineExceeded error. In this case, the server is not closed yet, which is why we need to force it to shut down because we don't want to wait forever. To do so, we can use the [Close](https://pkg.go.dev/net/http#Server.Close) method from the `http.Server`.
 
 ```diff
 diff --git a/server/main.go b/server/main.go
@@ -319,13 +251,12 @@ index d31244f..5758e99 100644
  }
 ```
 
-At this point, we have completed the implementation of graceful shutdown. We have also provided some wait tolerance to ensure the server is closed within a certain time frame. If it's not, we force the server to close.
 
-You can find the complete code [here](https://github.com/josestg/graceful-shutdown-in-go) and you can follow the commit history to see the changes for each step.
+At this point, we have implemented the graceful shutdown procedure. We also provide a procedure to forcefully shutdown the server if it is not able to complete the request within a given wait tolerance.
 
-## Conclusion
 
-In this article, we have learned how to implement graceful shutdown in Go, which is one of the best practices for building modern applications as mentioned in the [Twelve-Factor App](https://12factor.net/disposability) guidelines. We also learned how context is used to set a deadline for the shutdown process and channel as a way for goroutines to communicate with each other.
+You can find the complete [code in this repository](https://github.com/josestg/graceful-shutdown-in-go).
+
 
 
 ## What's Next?
