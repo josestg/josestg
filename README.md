@@ -1,2 +1,1 @@
-
-<img width="654" height="625" alt="image" src="https://github.com/user-attachments/assets/e888c547-b37c-4564-a885-deba10ab2ccd" />
+<img width="24120" height="18300" alt="gopher-shirt-charcoal" src="https://github.com/user-attachments/assets/9d959f1c-4e65-4eba-83f9-1ffd94edbb4d" />
