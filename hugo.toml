@@ -30,28 +30,7 @@ text = "josestg"
 
 [params.homeInfoParams]
 Title = "👋 Meet Jose Sitanggang"
-Content = "I'm a software engineer from Indonesia. It's great to have you on my site, where I share my learning journey and thoughts on software engineering, math, and more. I'd love to hear your thoughts, so please feel free to share your feedback! You can also connect with me on social media below."
-
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/josestg"
-
-[[params.socialIcons]]
-name = "twitter"
-url = "https://twitter.com/_josestg"
-
-[[params.socialIcons]]
-name = "keybase"
-url = "https://keybase.io/josestg"
-
-[[params.socialIcons]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/josestg"
-
-
-[[params.socialIcons]]
-name = "medium"
-url = "https://medium.com/@josestg"
+Content = "I'm a software engineer. It's great to have you on my site, where I share my learning journey and thoughts on software engineering, math, and more. I'd love to hear your thoughts, so please feel free to share your feedback!"
 
 [[menu.main]]
 identifier = "posts"
