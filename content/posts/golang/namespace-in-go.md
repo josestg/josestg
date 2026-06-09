@@ -2,7 +2,7 @@
 date = '2023-10-29T13:50:54+07:00'
 draft = false
 title = 'Namespace in Go'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["golang", "tips", "design-pattern"]
 description = "Discover how to create namespaces in Go, even without built-in support!"
 +++

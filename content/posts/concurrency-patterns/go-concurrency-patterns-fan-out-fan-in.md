@@ -2,7 +2,7 @@
 title = 'Go Concurrency Patterns: Fan-Out and Fan-In'
 date = '2024-08-27T21:00:11+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'concurrency-patterns', 'goroutine', 'channel', 'parallel-processing', 'worker-pool']
 math = true
 description = "A pattern that distributes workloads across workers and leverages parallelism in multicore CPUs."

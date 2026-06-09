@@ -2,7 +2,7 @@
 date = '2023-10-27T00:46:55+07:00'
 draft = false
 title = 'How Can Be Adding a New Item to a Dynamic Array Achieved in Constant Time?'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["math", "computer-science", "data-structure", "algorithm", "amortized-analysis"]
 description = "In short: It's a geometric series, and we'll use amortized analysis to explain it."
 math = true

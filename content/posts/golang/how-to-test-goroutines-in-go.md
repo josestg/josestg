@@ -2,7 +2,7 @@
 title = 'How to Test Goroutines in Go'
 date = '2024-04-09T21:19:52.255+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'goroutines', 'testing']
 description = "Testing goroutines in Go can be challenging because they execute in a random order. Learn how to test goroutines in Go using just the standard library."
 +++

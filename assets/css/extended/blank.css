@@ -1,5 +1,118 @@
-/*
-This is just a placeholder blank stylesheet so as to support adding custom styles budled with theme's default styles
+:root {
+    --gap: 14px;
+    --content-gap: 10px;
+    --main-width: 640px;
+    --radius: 0;
+    --theme: rgb(252, 252, 252);
+    --entry: rgb(255, 255, 255);
+    --primary: rgb(20, 20, 20);
+    --secondary: rgb(108, 108, 108);
+    --content: rgb(34, 34, 34);
+    --code-bg: rgb(246, 246, 246);
+    --border: rgb(232, 232, 232);
+}
 
-Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets for more info
-*/
+.dark {
+    --theme: rgb(16, 16, 16);
+    --entry: rgb(16, 16, 16);
+    --primary: rgb(234, 234, 234);
+    --secondary: rgb(166, 166, 166);
+    --content: rgb(205, 205, 205);
+    --code-bg: rgb(28, 28, 28);
+    --border: rgb(44, 44, 44);
+}
+
+.list,
+.single {
+    background: var(--theme);
+}
+
+.header {
+    background: var(--theme);
+    border-bottom: 0;
+}
+
+.dark .header {
+    background: var(--theme);
+}
+
+.post-entry,
+.first-entry,
+.post-single {
+    background: transparent;
+    border: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 14px 0;
+}
+
+.post-entry:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+a {
+    text-underline-offset: 2px;
+}
+
+.logo a {
+    letter-spacing: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#menu .active {
+    border-bottom: 1px solid currentColor;
+}
+
+#menu a {
+    font-size: 13px;
+}
+
+.breadcrumbs,
+#theme-toggle,
+.post-tags {
+    opacity: 0.7;
+}
+
+.entry-header h2,
+.post-title {
+    line-height: 1.35;
+}
+
+.entry-content,
+.post-content {
+    line-height: 1.7;
+}
+
+/* Extreme minimal mode: hide decorative UI elements. */
+.breadcrumbs,
+#theme-toggle,
+.top-link,
+.social-icons,
+.entry-cover,
+.post-cover,
+.post-tags,
+.post-description {
+    display: none !important;
+}
+
+.entry-footer,
+.post-meta {
+    font-size: 12px;
+    color: var(--secondary);
+}
+
+.entry-header h2 {
+    font-size: 22px;
+}
+
+.post-title {
+    font-size: 30px;
+}
+
+.main {
+    padding-top: 8px;
+}

@@ -2,7 +2,7 @@
 date = '2023-11-02T00:35:06+07:00'
 draft = false
 title = 'Graceful Shutdown in Go'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["golang", "tips", "microservice", "12-factor"]
 description = "Learn how graceful shutdown ensures your requests stay safe during service updates by following the 12-factor principles"
 +++

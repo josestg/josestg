@@ -2,7 +2,7 @@
 title = 'Go Concurrency Patterns: Generator'
 date = '2024-08-25T21:00:11+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'concurrency-patterns', 'goroutine', 'channel', 'lazy-evaluation']
 math = true
 description = "A pattern that produces values on demand, allowing infinite sequences or large datasets to be generated one element at a time, optimizing memory and enabling lazy evaluation."

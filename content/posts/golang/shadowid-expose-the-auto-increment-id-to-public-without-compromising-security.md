@@ -2,7 +2,7 @@
 date = '2023-10-28T12:19:58+07:00'
 draft = false
 title = 'ShadowID: Expose the Auto Increment ID to Public Without Compromising Security'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["golang", "bit-manipulation", "database","data-structure", "alogrithm", "crypto"]
 description = "Combine the best of both worlds: the performance of Auto Increment IDs and the security of UUIDs."
 +++

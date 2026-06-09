@@ -2,7 +2,7 @@
 date = '{{ .Date }}'
 draft = true
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'design-pattern']
 description = ""
 [cover]

@@ -2,7 +2,7 @@
 date = '2024-08-22T19:20:06+07:00'
 draft = false
 title = 'How to Build a Pluggable Library in Go'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["golang", "tips"]
 description = "Discover how Go's buildmode=plugin lets you dynamically extend application functionality and optimize builds by reducing binary size and avoiding unnecessary recompilation."
 +++

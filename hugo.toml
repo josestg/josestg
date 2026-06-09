@@ -1,6 +1,6 @@
 baseURL = 'https://josestg.com/'
-languageCode = 'en-us'
-title = 'Jose Sitanggang'
+locale = 'en-us'
+title = 'JS'
 paginate = 5
 
 [minify]
@@ -9,27 +9,29 @@ minifyOutput = true
 
 [params]
 env = "production"
-description = "'m a software engineer from Indonesia. It's great to have you on my site, where I share my learning journey and thoughts on software engineering, math, and more"
-keywords = ["Jose Sitanggang", "Software Engineering", "Backend Engineer"]
+author = "JS"
+email = "js@josestg.com"
+description = "Practical notes on software engineering, backend systems, and learning in public."
+keywords = ["Software Engineering", "Backend Engineer"]
 DateFormat = "January 2, 2006"
-defaultTheme = "dark"
+defaultTheme = "light"
 ShowReadingTime = true
-ShowShareButtons = true
+ShowShareButtons = false
 ShowPostNavLinks = true
 ShowBreadCrumbs = true
-ShowWordCount = true
+ShowWordCount = false
 ShowRssButtonInSectionTermList = true
 UseHugoToc = true
 showtoc = true
 tocopen = false
 ShareButtons = ["twitter", "facebook", "linkedin", "whatsapp"]
-comments = true
+comments = false
 
 [params.label]
-text = "josestg"
+text = "JS"
 
 [params.homeInfoParams]
-Title = "👋 Meet Jose Sitanggang"
+Title = "👋 Meet JS"
 Content = "I'm a software engineer. It's great to have you on my site, where I share my learning journey and thoughts on software engineering, math, and more. I'd love to hear your thoughts, so please feel free to share your feedback!"
 
 [[menu.main]]
@@ -45,7 +47,7 @@ url = "/tags/"
 weight = 20
 
 [params.giscus]
-repo = 'josestg/josestg'                  # see https://giscus.app for more details
+repo = ''                  # see https://giscus.app for more details
 repoId = 'R_kgDOKlwNbQ'
 category = 'post-comments'
 categoryId = 'DIC_kwDOKlwNbc4Cae2C'
@@ -54,7 +56,7 @@ theme = 'dark_dimmed'
 lang = 'en'
 
 [params.editPost]
-URL = "https://github.com/josestg/josestg/blob/main/content"
+URL = ""
 Text = "Suggest Changes"
 appendFilePath = true
 
@@ -62,3 +64,7 @@ appendFilePath = true
 hidden = true
 hiddenInList = true
 hiddenInSingle = false
+
+[author]
+name = "JS"
+email = "js@josestg.com"

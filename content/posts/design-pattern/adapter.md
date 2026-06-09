@@ -2,7 +2,7 @@
 title = 'Practical Design Pattern in Go: Adapter'
 date = '2023-10-29T15:36:11+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'design-pattern', 'adapter']
 description = "Explore the Adapter Pattern in Go with real-world examples to bridge the gap between incompatible interfaces. Perfect for Go enthusiasts and design pattern explorers."
 [cover]

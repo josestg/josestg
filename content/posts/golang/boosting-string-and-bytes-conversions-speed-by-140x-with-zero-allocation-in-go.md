@@ -2,7 +2,7 @@
 title = 'Boosting String and Bytes Conversions Speed by 140x with Zero Allocation in Go'
 date = '2023-10-21T03:04:14+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'slice', 'optimization']
 description = "Enhancing Performance and Memory Efficiency in String to Bytes Conversions and Vice Versa."
 [cover]

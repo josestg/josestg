@@ -2,7 +2,7 @@
 date = '2023-10-22T03:15:57+07:00'
 draft = false
 title = 'Exploring Internal Implementation of Go Slice'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ["golang", "slice", "data-structure", "c++"]
 description = "Understanding how slices work in Go on a deeper level, by implementing it in C++."
 +++

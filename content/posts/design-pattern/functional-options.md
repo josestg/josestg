@@ -2,7 +2,7 @@
 date = '2023-10-30T23:21:37+07:00'
 draft = false
 title = 'Practical Design Pattern in Go: Functional Options'
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'design-pattern', 'functional-options']
 description = "Discover flexible object configuration in Go with a functional style"
 [cover]

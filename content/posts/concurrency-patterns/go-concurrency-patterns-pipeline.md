@@ -2,7 +2,7 @@
 title = 'Go Concurrency Patterns: Pipeline'
 date = '2024-08-26T21:00:11+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'concurrency-patterns', 'goroutine', 'channel', 'pipeline']
 math = true
 description = "A pattern that processes data in stages, allowing each step to be handled concurrently, optimizing performance and enabling efficient, scalable data pipelines."

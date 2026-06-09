@@ -2,7 +2,7 @@
 date = '2023-09-23T03:00:03+07:00'
 draft = false
 title = 'A Simple Proof of XOR Uniqueness'
-author = ["Jose Sitanggang"]
+author = ["JS"]
 tags = ['computer-science', 'math', 'proof', 'bit-manipulation']
 math = true
 description = "When computers are too slow to prove the correctness, mathematics rides to the rescue. That's why we need math -- even computers could use a little math magic!"

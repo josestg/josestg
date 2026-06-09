@@ -2,7 +2,7 @@
 title = 'How to Test HTTP Outbound in Go Using Just the Standard Library'
 date = '2024-04-15T19:19:47.255+07:00'
 draft = false
-author = "Jose Sitanggang"
+author = "JS"
 tags = ['golang', 'http', 'microservices', 'testing']
 description = "My approach to testing HTTP outbound in Go using just the standard library."
 +++
