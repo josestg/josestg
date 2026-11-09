@@ -9,13 +9,15 @@
     :root {
       --bg: #d8cbb3;
       --fg: #1e1e1c;
-      --accent: #2f6bff;
+      --accent: #1f6b2a;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #1e1e1c;
         --fg: #d8cbb3;
+        --accent: #4ade80;
       }
+      h1::after, .bar::after { box-shadow: 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent); }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
