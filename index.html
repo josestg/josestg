@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>josestg — Work in progress</title>
+  <meta name="description" content="This site is a work in progress. Check back soon.">
+  <style>
+    :root {
+      --bg: #d8cbb3;
+      --fg: #1e1e1c;
+      --accent: #2f6bff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1e1e1c;
+        --fg: #d8cbb3;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    main { width: min(100%, 28rem); }
+    h1 {
+      font-size: clamp(1.75rem, 8vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+    h1::after {
+      content: "";
+      display: inline-block;
+      width: .5em;
+      height: .9em;
+      margin-left: .1em;
+      vertical-align: -.1em;
+      background: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .bar {
+      height: 2px;
+      margin: 1.25rem 0;
+      background: color-mix(in srgb, var(--fg) 15%, transparent);
+    }
+    .bar::after {
+      content: "";
+      display: block;
+      height: 100%;
+      background: var(--accent);
+      animation: fill 4s cubic-bezier(.2, .9, .3, 1) both;
+    }
+    @keyframes fill { from { width: 0; } to { width: 99%; } }
+    .ticker {
+      height: 1.5em;
+      overflow: hidden;
+      font-size: .875rem;
+      line-height: 1.5;
+      list-style: none;
+    }
+    .ticker li {
+      opacity: .7;
+      animation: tick 15s steps(1) infinite;
+    }
+    .ticker li::before { content: "> "; color: var(--accent); }
+    @keyframes tick {
+      0%  { transform: translateY(0); }
+      20% { transform: translateY(-100%); }
+      40% { transform: translateY(-200%); }
+      60% { transform: translateY(-300%); }
+      80% { transform: translateY(-400%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0s !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>work in progress</h1>
+    <div class="bar" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" aria-label="Site progress"></div>
+    <ul class="ticker">
+      <li>brewing more coffee…</li>
+      <li>almost there…</li>
+      <li>reading someone's papers…</li>
+      <li>grokking systems programming…</li>
+      <li>grokking the math…</li>
+    </ul>
+  </main>
+</body>
+</html>
